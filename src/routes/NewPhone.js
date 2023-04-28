@@ -1,8 +1,11 @@
 import React from 'react'
+import FormLogin from '../components/Project/FormLogin'
 
 const NewPhone = () => {
   return (
-    <div>NewPhone</div>
+    <div>
+      <FormLogin btnText="Cadastrar"/>
+    </div>
   )
 }
 

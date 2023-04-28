@@ -1,6 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
+import { ConfigProvider } from 'antd'
+import ptBR from 'antd/lib/locale/pt_BR'
+import 'antd/dist/reset.css' ; 
 import App from "./App";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
@@ -21,11 +24,11 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "/newrequest",
+        path: "/phonebook",
         element: <PhoneBook />,
       },
       {
-        path: "/newproduct",
+        path: "/newphone",
         element: <NewPhone />,
       },
     ],
@@ -34,7 +37,9 @@ const router = createBrowserRouter([
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
+  <ConfigProvider locale={ptBR}>
+    <React.StrictMode>
     <RouterProvider router={router} />
   </React.StrictMode>
+  </ConfigProvider>
 );
