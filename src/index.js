@@ -12,6 +12,7 @@ import PhoneBook from "./routes/PhoneBook";
 import NewPhone from "./routes/NewPhone";
 import Home from "./routes/Home";
 import ErrorPage from "./routes/ErrorPage";
+import RegisterUser from "./routes/RegisterUser";
 
 const router = createBrowserRouter([
   {
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
       {
         path: "/newphone",
         element: <NewPhone />,
+      },
+      {
+        path: "/register",
+        element: <RegisterUser />,
       },
     ],
   },

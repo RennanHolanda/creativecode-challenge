@@ -1,18 +1,25 @@
-import styles from "./Form.module.css";
+import styles from './FormRegister.module.css';
 
 // import { useState } from "react";
 import { Link } from "react-router-dom";
 
 import SubmitButton from "../Form/SubmitButton";
 
-function FormLogin({btnText}) {
+function FormRegister({btnText}) {
   return (
     <form id={styles.form_product}>
-       <label htmlFor="user">Usuário</label>
+       <label htmlFor="email">E-mail</label>
       <input
         type="text"
-        text="Usuário"
-        name="name"
+        text="email"
+        name="email"
+        placeholder="usuario@mail.com"
+      /> <br />
+         <label htmlFor="emaiç">Repita seu E-mail</label>
+      <input
+        type="text"
+        text="email"
+        name="email"
         placeholder="usuario@mail.com"
       /> <br />
        <label htmlFor="passwoard">Senha</label>
@@ -26,13 +33,13 @@ function FormLogin({btnText}) {
         <SubmitButton text={btnText} />
       </div><br />
       <div>
-      <label htmlFor="register">Não tem uma conta?</label>
+      <label htmlFor="register">Já tem uma conta?</label>
       <strong>
-      <Link to={"/register"}>&nbsp;Registre-se</Link>
+      <Link to={"/"}>&nbsp;Faça seu Login</Link>
       </strong>
       </div>
     </form>
   );
 }
 
-export default FormLogin;
+export default FormRegister;
