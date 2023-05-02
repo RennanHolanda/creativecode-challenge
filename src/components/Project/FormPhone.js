@@ -1,30 +1,77 @@
-import styles from "./FormPhone.module.css";
+import React, { useState } from 'react';
+import { useContatos } from '../../context/ContactContext';
+import Table from 'react-bootstrap/Table';
+import Button from 'react-bootstrap/Button';
+import styles from './FormPhone.module.css';
 
+const ListaTelefonica = () => {
+  const { contatos, adicionarContato, atualizarContato, removerContato } = useContatos();
+  const [idAtual, setIdAtual] = useState(null);
+  const [nome, setNome] = useState('');
+  const [telefone, setTelefone] = useState('');
 
-import SubmitButton from "../Form/SubmitButton";
+  const handleAddContato = (e) => {
+    e.preventDefault();
+    if (idAtual === null) {
+      adicionarContato(nome, telefone);
+    } else {
+      atualizarContato(idAtual, nome, telefone);
+      setIdAtual(null);
+    }
+    setNome('');
+    setTelefone('');
+  };
 
-function FormPhone({btnText}) {
+  const handleEditContato = (contato) => {
+    setIdAtual(contato.id);
+    setNome(contato.nome);
+    setTelefone(contato.telefone);
+  };
+
+  const handleDeleteContato = (id) => {
+    removerContato(id);
+  };
+
   return (
-    <form id={styles.phone}>
-       <label htmlFor="name">Nome</label>
-      <input
-        type="text"
-        text="Nome"
-        name="name"
-        placeholder="Digíte seu nome"
-      /> <br />
-        <label htmlFor="number">Telefone</label>
-      <input
-        type="text"
-        text="phone"
-        name="number"
-        placeholder="(81) 99999-9999"
-      /><br />
-      <div id={styles.phone_btn}>
-        <SubmitButton text={btnText} />
+    <div id={styles.phone}>
+      <form onSubmit={handleAddContato}>
+        <label>
+          Nome:
+          <input type="text" value={nome} onChange={(e) => setNome(e.target.value)} />
+        </label>
+        <label>
+          Telefone:
+          <input type="text" value={telefone} onChange={(e) => setTelefone(e.target.value)} />
+        </label>
+        <button id={styles.btn} type="submit">{idAtual === null ? 'Adicionar' : 'Atualizar'}</button>
+      </form>
+      <div><br />
+      <h3>Lista Telefônica</h3>
+      <Table striped bordered hover variant="dark" id={styles.table}>
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Telefone</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          {contatos.map((contato) => (
+            <tr key={contato.id}>
+              <td>{contato.nome}</td>
+              <td>{contato.telefone}</td>
+              <td id={styles.area_btn}>
+              <Button variant="primary" onClick={() => handleEditContato(contato)}>Editar</Button>{' '}
+              <Button variant="danger" onClick={() => handleDeleteContato(contato.id)}>Excluir</Button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+        </Table>
       </div>
-    </form>
+    
+    </div>
   );
-}
+};
 
-export default FormPhone;
+export default ListaTelefonica;

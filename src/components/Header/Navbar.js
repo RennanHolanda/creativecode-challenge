@@ -17,9 +17,6 @@ function Navbar() {
           <Link to="/">LOGIN</Link>
         </li>
         <li>
-          <Link to="/phonebook">LISTA TELEFÔNICA</Link>
-        </li>
-        <li>
           <Link to="/newphone">CADASTRAR TELEFONE</Link>
         </li>
       </ul>

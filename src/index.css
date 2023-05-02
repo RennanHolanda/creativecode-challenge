@@ -53,7 +53,7 @@ body {
     color: #aaa;
   }
   
-  .btn,
+  /* .btn,
   button,
   input[type="submit"] {
     background-color: #0094f6;
@@ -65,7 +65,7 @@ body {
     cursor: pointer;
     opacity: 0.8;
     font-size: 1em;
-  }
+  } */
   
   input[type="submit"] {
     margin-top: 1em;
