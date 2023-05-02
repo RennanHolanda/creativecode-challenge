@@ -9,4 +9,3 @@ function SubmitButton({ text }) {
 }
 
 export default SubmitButton;
-

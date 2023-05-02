@@ -1,11 +1,9 @@
 #form input {
-    width: 75%;
-    margin-top: 1em;
-  }
-  
-  
-  #area_btn button {
-    margin-left: 0.5em;
-    margin-top: 1em;
-  }
-  
+  width: 75%;
+  margin-top: 1em;
+}
+
+#area_btn button {
+  margin-left: 0.5em;
+  margin-top: 1em;
+}

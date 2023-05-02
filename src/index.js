@@ -12,7 +12,6 @@ import Home from "./routes/Home";
 import ErrorPage from "./routes/ErrorPage";
 import RegisterUser from "./routes/RegisterUser";
 
-
 const router = createBrowserRouter([
   {
     path: "/",
@@ -37,11 +36,9 @@ const router = createBrowserRouter([
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-<ContatosProvider>
-<React.StrictMode>
+  <ContatosProvider>
+    <React.StrictMode>
       <RouterProvider router={router} />
     </React.StrictMode>
-</ContatosProvider>
-   
-
+  </ContatosProvider>
 );

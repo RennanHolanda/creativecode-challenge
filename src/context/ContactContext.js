@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useState, useEffect } from "react";
 
 const ContatosContext = createContext();
 
@@ -6,14 +6,14 @@ const ContatosProvider = ({ children }) => {
   const [contatos, setContatos] = useState([]);
 
   useEffect(() => {
-    const contatosSalvos = JSON.parse(localStorage.getItem('contatos'));
+    const contatosSalvos = JSON.parse(localStorage.getItem("contatos"));
     if (contatosSalvos) {
       setContatos(contatosSalvos);
     }
   }, []);
 
   useEffect(() => {
-    localStorage.setItem('contatos', JSON.stringify(contatos));
+    localStorage.setItem("contatos", JSON.stringify(contatos));
   }, [contatos]);
 
   const adicionarContato = (nome, telefone) => {
@@ -24,7 +24,9 @@ const ContatosProvider = ({ children }) => {
 
   const atualizarContato = (id, nome, telefone) => {
     const novoContato = { id, nome, telefone };
-    setContatos(contatos.map((contato) => (contato.id === id ? novoContato : contato)));
+    setContatos(
+      contatos.map((contato) => (contato.id === id ? novoContato : contato))
+    );
   };
 
   const removerContato = (id) => {
@@ -32,7 +34,9 @@ const ContatosProvider = ({ children }) => {
   };
 
   return (
-    <ContatosContext.Provider value={{ contatos, adicionarContato, atualizarContato, removerContato }}>
+    <ContatosContext.Provider
+      value={{ contatos, adicionarContato, atualizarContato, removerContato }}
+    >
       {children}
     </ContatosContext.Provider>
   );
@@ -41,7 +45,7 @@ const ContatosProvider = ({ children }) => {
 const useContatos = () => {
   const context = useContext(ContatosContext);
   if (!context) {
-    throw new Error('useContatos deve ser usado dentro do ContatosProvider');
+    throw new Error("useContatos deve ser usado dentro do ContatosProvider");
   }
   return context;
 };
