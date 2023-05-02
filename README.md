@@ -34,7 +34,9 @@ Você pode visualizar o layout do projeto através do link https://github.com/Re
 
 para rodar o projeto basta seguir os seguintes comandos
 
-- npm init -y (para baixar as dependências, obs. Atentar para o diretorio do terminal do para abrir na pasta frontend )
+- Fazer um clone do projeto via Git ou baixar o Zip para desconpactar a pasta e abrir no seu editor de código de prefência
 
-para rodar o projeto frontend execute o comando no terminal: npm start ou nodemon index.js
+- Digitar "npm init -y ou yarn install" (para baixar as dependências, obs. Atentar para o diretorio do terminal do para abrir na pasta frontend )
+
+para rodar o projeto frontend execute o comando no terminal: " npm start ou nodemon index.js "
  
