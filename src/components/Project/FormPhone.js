@@ -4,7 +4,7 @@ import Table from "react-bootstrap/Table";
 import Button from "react-bootstrap/Button";
 import styles from "./FormPhone.module.css";
 
-const ListaTelefonica = () => {
+const PhoneList = () => {
   const { contatos, adicionarContato, atualizarContato, removerContato } =
     useContatos();
   const [idAtual, setIdAtual] = useState(null);
@@ -95,4 +95,4 @@ const ListaTelefonica = () => {
   );
 };
 
-export default ListaTelefonica;
+export default PhoneList;
