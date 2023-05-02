@@ -1,14 +1,16 @@
-
-import FormLogin from "../components/Project/FormLogin";
-import styles from "./Home.module.css";
+import React, { useContext } from "react";
+import { AuthContext } from "../context/AuthContext";
+import LoginPage from "../components/Project/LoginPage";
+import WelcomeMessage from "./Welcomemessage";
 
 const Home = () => {
-  return (
-    <div id={styles.home}>
-      <h2>LOGIN</h2>
-      <FormLogin btnText="Entrar"/>
-    </div>
-  )
-}
+  const { user } = useContext(AuthContext);
 
-export default Home
+  return (
+    <div>
+      {user ? <WelcomeMessage /> : <LoginPage btntext="Entrar"/>}
+    </div>
+  );
+};
+
+export default Home;
